@@ -1,0 +1,2 @@
+ALTER TABLE users
+ADD COLUMN IF NOT EXISTS generation_count integer NOT NULL DEFAULT 0;
