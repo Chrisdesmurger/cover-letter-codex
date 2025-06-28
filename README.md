@@ -31,7 +31,7 @@ A web application to generate personalized cover letters based on a user's CV an
 
 ## Environment Variables
 
-Copy `.env.example` to `.env` and set the variables. Provide your `SUPABASE_URL` and `SUPABASE_ANON_KEY` from the Supabase dashboard.
+Copy `.env.example` to `.env` and set the variables. Provide your `SUPABASE_URL` and `SUPABASE_ANON_KEY` from the Supabase dashboard. Also define `NEXTAUTH_SECRET` with any random string for signing authentication tokens.
 
 ## Supabase
 The app uses [Supabase](https://supabase.com/) for data storage. Configure your project keys in the environment variables.

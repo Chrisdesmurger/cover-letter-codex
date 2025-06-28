@@ -6,6 +6,7 @@ export default function Login() {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,12 +19,15 @@ export default function Login() {
 
     if (res?.ok) {
       router.push('/dashboard');
+    } else {
+      setError('Invalid email or password');
     }
   };
 
   return (
     <form className="max-w-md mx-auto p-4" onSubmit={handleLogin}>
       <h1 className="text-xl mb-4">Login</h1>
+      {error && <p className="text-red-500 mb-2">{error}</p>}
       <input
         type="email"
         placeholder="Email"

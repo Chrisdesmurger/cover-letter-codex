@@ -3,6 +3,8 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 import { supabase } from '../../../lib/supabaseClient';
 
 export const authOptions = {
+  session: { strategy: 'jwt' },
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     CredentialsProvider({
       name: 'Credentials',
