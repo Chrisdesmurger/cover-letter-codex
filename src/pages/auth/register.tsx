@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import { signIn } from 'next-auth/react';
 import { supabase } from '../../lib/supabaseClient';
 
 export default function Register() {
@@ -13,7 +14,14 @@ export default function Register() {
       email,
       password,
     });
+
     if (!error) {
+      // Automatically authenticate the newly created user
+      await signIn('credentials', {
+        redirect: false,
+        email,
+        password,
+      });
       router.push('/dashboard');
     } else {
       console.error('Registration error', error);
