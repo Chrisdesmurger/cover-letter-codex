@@ -17,7 +17,7 @@ export const authOptions = {
 
         const { data, error } = await supabase
           .from('users')
-          .select('id, email, password')
+          .select('*')
           .eq('email', credentials.email)
           .single();
 
@@ -29,7 +29,11 @@ export const authOptions = {
           return null;
         }
 
-        return { id: data.id, email: data.email } as any;
+        // return the full user record to NextAuth
+        return {
+          id: data.id,
+          email: data.email,
+        } as any;
       },
     }),
   ],

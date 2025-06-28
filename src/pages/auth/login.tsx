@@ -9,6 +9,7 @@ export default function Login() {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+    // authenticate using the Credentials provider
     const res = await signIn('credentials', {
       redirect: false,
       email,
