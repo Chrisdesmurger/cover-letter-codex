@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { signIn } from 'next-auth/react';
 import { supabase } from '../../lib/supabaseClient';
+import bcrypt from 'bcryptjs';
 
 export default function Register() {
   const router = useRouter();
@@ -10,9 +11,10 @@ export default function Register() {
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
+    const hashed = await bcrypt.hash(password, 10);
     const { error } = await supabase.from('users').insert({
       email,
-      password,
+      password: hashed,
     });
 
     if (!error) {
