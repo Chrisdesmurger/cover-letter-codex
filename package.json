@@ -23,7 +23,8 @@
     "mammoth": "latest",
     "openai": "latest",
     "stripe": "latest",
-    "next-auth": "latest"
+    "next-auth": "latest",
+    "bcryptjs": "latest"
   },
   "devDependencies": {
     "@types/node": "latest",

@@ -1,6 +1,7 @@
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { supabase } from '../../../lib/supabaseClient';
+import bcrypt from 'bcryptjs';
 
 export const authOptions = {
   session: { strategy: 'jwt' },
@@ -27,7 +28,8 @@ export const authOptions = {
           return null;
         }
 
-        if (data.password !== credentials.password) {
+        const valid = await bcrypt.compare(credentials.password, data.password);
+        if (!valid) {
           return null;
         }
 

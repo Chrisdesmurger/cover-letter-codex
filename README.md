@@ -10,6 +10,7 @@ A web application to generate personalized cover letters based on a user's CV an
 - User review and feedback system.
 - Profile photos and multilingual interface.
 - Subscription plans with usage quotas via Stripe.
+- Passwords are hashed with bcrypt before being stored.
 
 ## Tech Stack
 - **Next.js** + **React** + **Tailwind CSS** + **TypeScript**
