@@ -24,7 +24,8 @@
     "openai": "latest",
     "stripe": "latest",
     "next-auth": "latest",
-    "bcryptjs": "latest"
+    "bcryptjs": "latest",
+    "@heroicons/react": "latest"
   },
   "devDependencies": {
     "@types/node": "latest",

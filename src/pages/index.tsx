@@ -2,11 +2,13 @@ import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import type { GetStaticProps } from 'next';
+import MainLayout from '../components/MainLayout';
+import type { NextPageWithLayout } from './_app';
 
-export default function Home() {
+const Home: NextPageWithLayout = () => {
   const { t } = useTranslation();
   return (
-    <main className="p-4">
+    <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">{t('welcome')}</h1>
       <nav className="space-x-4">
         <Link href="/auth/login" className="underline">
@@ -16,9 +18,13 @@ export default function Home() {
           {t('register')}
         </Link>
       </nav>
-    </main>
+    </div>
   );
-}
+};
+
+Home.getLayout = (page) => <MainLayout>{page}</MainLayout>;
+
+export default Home;
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   props: {

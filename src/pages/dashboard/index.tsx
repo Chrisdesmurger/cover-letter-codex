@@ -3,12 +3,14 @@ import { GetServerSidePropsContext } from 'next';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '../api/auth/[...nextauth]';
 import { supabase } from '../../lib/supabaseClient';
+import MainLayout from '../../components/MainLayout';
+import type { NextPageWithLayout } from '../_app';
 
 interface DashboardProps {
   generationCount: number;
 }
 
-export default function Dashboard({ generationCount }: DashboardProps) {
+const Dashboard: NextPageWithLayout<DashboardProps> = ({ generationCount }) => {
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">Dashboard</h1>
@@ -37,7 +39,11 @@ export default function Dashboard({ generationCount }: DashboardProps) {
       </ul>
     </div>
   );
-}
+};
+
+Dashboard.getLayout = (page) => <MainLayout>{page}</MainLayout>;
+
+export default Dashboard;
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await getServerSession(
