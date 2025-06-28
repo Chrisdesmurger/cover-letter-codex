@@ -19,6 +19,8 @@
     "@supabase/supabase-js": "latest",
     "next-i18next": "latest",
     "tesseract.js": "latest",
+    "@supabase/storage-js": "latest",
+    "mammoth": "latest",
     "openai": "latest",
     "stripe": "latest",
     "next-auth": "latest"

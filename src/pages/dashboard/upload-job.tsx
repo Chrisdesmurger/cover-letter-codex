@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import { parseImage } from '../../lib/ocr';
+import { parseDocument } from '../../lib/ocr';
+import { storage } from '../../lib/storageClient';
+import { supabase } from '../../lib/supabaseClient';
 
 export default function UploadJob() {
   const [text, setText] = useState('');
@@ -7,7 +9,13 @@ export default function UploadJob() {
   const handleFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
-    const parsed = await parseImage(file);
+    const path = `job/${Date.now()}_${file.name}`;
+    const { error: uploadError } = await storage.from('documents').upload(path, file);
+    if (uploadError) {
+      console.error(uploadError);
+    }
+    const parsed = await parseDocument(file);
+    await supabase.from('documents').insert({ path, text: parsed, type: 'job' });
     setText(parsed);
   };
 
@@ -16,7 +24,7 @@ export default function UploadJob() {
       <h1 className="text-xl font-bold mb-4">Upload Job Offer</h1>
       <input
         type="file"
-        accept="image/*,.pdf"
+        accept=".pdf,.docx"
         onChange={handleFile}
         className="mb-4"
       />
