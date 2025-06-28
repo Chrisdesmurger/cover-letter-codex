@@ -1,6 +1,5 @@
 datasource db {
   provider = "postgresql"
-  url      = env("SUPABASE_DB_URL")
 }
 
 generator client {
@@ -43,7 +42,7 @@ model GeneratedLetter {
   language String
   user     User     @relation(fields: [userId], references: [id])
   userId   String
-  feedbacks Feedback[]
+
   createdAt DateTime @default(now())
 }
 

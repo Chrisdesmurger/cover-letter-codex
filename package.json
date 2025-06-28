@@ -21,7 +21,6 @@
     "next-i18next": "latest",
     "tesseract.js": "latest",
     "openai": "latest",
-    "@supabase/supabase-js": "latest",
     "stripe": "latest",
     "next-auth": "latest"
   },
