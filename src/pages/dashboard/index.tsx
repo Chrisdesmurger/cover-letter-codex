@@ -1,8 +1,10 @@
 import Link from 'next/link';
+import BackButton from '../../components/BackButton';
 
 export default function Dashboard() {
   return (
     <div className="p-4">
+      <BackButton />
       <h1 className="text-2xl font-bold mb-4">Dashboard</h1>
       <ul className="space-y-2">
         <li>

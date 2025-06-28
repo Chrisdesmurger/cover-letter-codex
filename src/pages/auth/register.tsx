@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import BackButton from '../../components/BackButton';
 
 export default function Register() {
   const router = useRouter();
@@ -14,6 +15,7 @@ export default function Register() {
 
   return (
     <form className="max-w-md mx-auto p-4" onSubmit={handleRegister}>
+      <BackButton />
       <h1 className="text-xl mb-4">Register</h1>
       <input
         type="email"

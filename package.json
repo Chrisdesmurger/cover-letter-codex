@@ -21,7 +21,8 @@
     "tesseract.js": "latest",
     "openai": "latest",
     "stripe": "latest",
-    "next-auth": "latest"
+    "next-auth": "latest",
+    "cheerio": "latest"
   },
   "devDependencies": {
     "@types/node": "latest",

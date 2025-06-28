@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { parseImage } from '../../lib/ocr';
+import BackButton from '../../components/BackButton';
 
 export default function UploadJob() {
   const [text, setText] = useState('');
@@ -13,6 +14,7 @@ export default function UploadJob() {
 
   return (
     <div className="p-4">
+      <BackButton />
       <h1 className="text-xl font-bold mb-4">Upload Job Offer</h1>
       <input
         type="file"
