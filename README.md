@@ -24,20 +24,17 @@ A web application to generate personalized cover letters based on a user's CV an
    ```bash
    npm install
    ```
-   ```bash
-   npx prisma migrate dev --name init
-   ```
-4. Start the dev server:
+2. Start the dev server:
    ```bash
    npm run dev
    ```
 
 ## Environment Variables
 
-Copy `.env.example` to `.env` and set the variables. Ensure `DATABASE_URL` is configured with your Postgres connection string.
+Copy `.env.example` to `.env` and set the variables. Provide your `SUPABASE_URL` and `SUPABASE_ANON_KEY` from the Supabase dashboard.
 
-## Prisma
-Prisma schema is located in `prisma/schema.prisma`. Adjust models as needed and run migrations.
+## Supabase
+The app uses [Supabase](https://supabase.com/) for data storage. Configure your project keys in the environment variables.
 
 ## License
 MIT
