@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import { signIn } from 'next-auth/react';
 
 export default function Login() {
   const router = useRouter();
@@ -8,8 +9,15 @@ export default function Login() {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: integrate auth provider
-    router.push('/dashboard');
+    const res = await signIn('credentials', {
+      redirect: false,
+      email,
+      password,
+    });
+
+    if (res?.ok) {
+      router.push('/dashboard');
+    }
   };
 
   return (

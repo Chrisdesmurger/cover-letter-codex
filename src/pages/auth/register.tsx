@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import { supabase } from '../../lib/supabaseClient';
 
 export default function Register() {
   const router = useRouter();
@@ -8,8 +9,15 @@ export default function Register() {
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: integrate auth provider
-    router.push('/dashboard');
+    const { error } = await supabase.from('users').insert({
+      email,
+      password,
+    });
+    if (!error) {
+      router.push('/dashboard');
+    } else {
+      console.error('Registration error', error);
+    }
   };
 
   return (
