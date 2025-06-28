@@ -13,7 +13,6 @@ A web application to generate personalized cover letters based on a user's CV an
 
 ## Tech Stack
 - **Next.js** + **React** + **Tailwind CSS** + **TypeScript**
-- **PostgreSQL** + **Prisma ORM**
 - **OpenAI GPT** for text generation
 - **next-i18next** for i18n
 - **next-auth** (placeholder) for authentication
@@ -25,8 +24,6 @@ A web application to generate personalized cover letters based on a user's CV an
    ```bash
    npm install
    ```
-2. Copy `.env.example` to `.env` and fill in the required variables.
-3. Run database migrations:
    ```bash
    npx prisma migrate dev --name init
    ```
@@ -36,7 +33,6 @@ A web application to generate personalized cover letters based on a user's CV an
    ```
 
 ## Environment Variables
-See `.env.example` for all necessary environment variables such as database URL, OpenAI key, and Stripe keys.
 
 ## Prisma
 Prisma schema is located in `prisma/schema.prisma`. Adjust models as needed and run migrations.
