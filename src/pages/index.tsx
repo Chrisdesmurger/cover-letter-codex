@@ -15,6 +15,9 @@ export default function Home() {
         <Link href="/auth/register" className="underline">
           {t('register')}
         </Link>
+        <Link href="/modern-webapp" className="underline">
+          Modern Webapp
+        </Link>
       </nav>
     </main>
   );

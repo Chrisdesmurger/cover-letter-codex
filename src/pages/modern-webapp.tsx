@@ -76,6 +76,7 @@ const ModernWebApp = () => {
     const progress = ((currentStep + 1) / questions.length) * 100;
 
     const renderDashboard = () => (
+     
         <div className="space-y-8">
             {/* Welcome Section */}
             <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-orange-100/50 shadow-xl">
